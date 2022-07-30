@@ -26,7 +26,7 @@ CREATE TABLE "customerAddresses"(
 "customerId" INTEGER NOT NULL REFERENCES "customers"("id") UNIQUE,
 "street" TEXT NOT NULL,
 "number" INTEGER NOT NULL,
-complement TEXT,
+"complement" TEXT,
 "postalCode" VARCHAR(8) NOT NULL,
 "cityId" INTEGER NOT NULL REFERENCES "cities"("id") 
 )
@@ -37,17 +37,17 @@ CREATE TABLE "customerPhones"(
 "id" SERIAL PRIMARY KEY,
 "customerId" INTEGER NOT NULL REFERENCES "customers"("id"),
 "number" VARCHAR (11) NOT NULL,
-"type" TEXT
+"type" TEXT 
 )
 
 
 CREATE TABLE "bankAccount"(
 "id" SERIAL PRIMARY KEY,
 "customerId" INTEGER NOT NULL REFERENCES "customers"("id"),
-"accountNumber" VARCHAR(30),
+"accountNumber" VARCHAR(30) NOT NULL, 
 "agency" VARCHAR(6),
-"opendate" date,
-"closeDate" date
+"opendate" date NOT NULL,
+"closeDate" date NOT NULL
 )
 
 CREATE TABLE transactions(
@@ -55,8 +55,8 @@ CREATE TABLE transactions(
 "bankAccountId" INTEGER NOT NULL REFERENCES "bankAccount"("id"),
 "amount" REAL NOT NULL DEFAULT 0,
 "type" TEXT NOT NULL DEFAULT 'Conta Corrente',
-"time" TIME, 
-description TEXT,
+"time" TIME , 
+"description" TEXT,
 "cancelled" BOOLEAN DEFAULT false
 )
 
