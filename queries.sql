@@ -27,7 +27,7 @@ CREATE TABLE "customerAddresses"(
 "street" TEXT NOT NULL,
 "number" INTEGER NOT NULL,
 complement TEXT,
-"postalCode" VARCHAR(8),
+"postalCode" VARCHAR(8) NOT NULL,
 "cityId" INTEGER NOT NULL REFERENCES "cities"("id") 
 )
 
