@@ -1,7 +1,7 @@
 CREATE TABLE "customers"(
 "id" SERIAL PRIMARY KEY,
 "fullName" TEXT NOT NULL,
-"cpf" varchar(11) NOT NULL UNIQUE,
+"cpf" CHAR(11) NOT NULL UNIQUE,
 "email" text NOT NULL,
 "password" text NOT NULL
 )
@@ -64,9 +64,9 @@ CREATE TABLE "creditCards"(
 "id" SERIAL PRIMARY KEY,
 "bankAccountId" INTEGER NOT NULL REFERENCES "bankAccount"("id"),
 "name" TEXT NOT NULL,
-"securityCode" VARCHAR(3) NOT NULL,
-"expirationMonth" VARCHAR(2) NOT NULL,
-"expirationYear" VARCHAR(4) NOT NULL,
+"securityCode" CHAR(3) NOT NULL,
+"expirationMonth" CHAR(2) NOT NULL,
+"expirationYear" CHAR(4) NOT NULL,
 "password" VARCHAR(6) NOT NULL,
 "limit" REAL NOT NULL DEFAULT 1000
 )
